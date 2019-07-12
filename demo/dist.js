@@ -23,7 +23,7 @@ class ApiFactory {
         })
             .then(response => Promise.all([response, response.json()]))
             .then(([response, body]) => ({
-                headers: response.headers,
+                headers: Array.from(response.headers).reduce((obj, [name, value]) => (obj[name] = value, obj), {}),
                 body
             }));
     }
