@@ -1,4 +1,4 @@
-# api-decorator
+# api-declaration
 Declarative client side API decorator
 
 #Import into project
