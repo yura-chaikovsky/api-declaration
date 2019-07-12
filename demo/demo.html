@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Api Declaration Demo</title>
+</head>
+<body>
+    <script src="/api-decorator/demo/dist.js"></script>
+    <script src="/api-decorator/demo/declarations.js"></script>
+    <script>
+        const BASE_URL = "https://jsonplaceholder.typicode.com";
+        const declarations = {
+            posts: {
+                _model: "Posts",
+
+                find: {
+                    url: "/posts",
+                    options: ["userId"]
+                }
+            }
+        };
+        const Api = new ApiFactory(BASE_URL, declarations);
+
+        Api.posts.find({userId:1})
+            .then(response => console.log(response))
+
+    </script>
+</body>
+</html>
